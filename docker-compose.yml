@@ -16,8 +16,8 @@ services:
     ports:
       - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
-    mem_limit: 256m
-    memswap_limit: 256m
+    #mem_limit: 256m
+    #memswap_limit: 256m
     cpus: 0.5
     networks:
       - cinenow-network
