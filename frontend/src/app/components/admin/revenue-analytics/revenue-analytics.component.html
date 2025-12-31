@@ -1,0 +1,233 @@
+<div class="revenue-container">
+  <div class="page-header">
+    <div class="header-content">
+      <h1>💰 Revenue Analytics</h1>
+      <p class="subtitle">Comprehensive revenue insights and top performers</p>
+    </div>
+  </div>
+
+  @if (loading) {
+    <div class="flex-center" style="min-height: 300px;">
+      <div class="spinner"></div>
+    </div>
+  } @else {
+    <!-- Income Cards -->
+    <div class="income-section">
+      <div class="income-cards">
+        <div class="income-card today-card">
+          <div class="income-icon">📅</div>
+          <div class="income-details">
+            <div class="income-label">Today's Revenue</div>
+            <div class="income-value">₹{{ incomeData.today | number:'1.0-0' }}</div>
+          </div>
+        </div>
+        
+        <div class="income-card weekly-card">
+          <div class="income-icon">📊</div>
+          <div class="income-details">
+            <div class="income-label">Weekly Revenue</div>
+            <div class="income-value">₹{{ incomeData.weekly | number:'1.0-0' }}</div>
+          </div>
+        </div>
+        
+        <div class="income-card monthly-card">
+          <div class="income-icon">💎</div>
+          <div class="income-details">
+            <div class="income-label">Monthly Revenue</div>
+            <div class="income-value">₹{{ incomeData.monthly | number:'1.0-0' }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rankings Section -->
+    <div class="rankings-section">
+      <div class="rankings-header">
+        <h2>🏆 Top Performers</h2>
+        <div class="filter-controls">
+          <select [(ngModel)]="filterType" (change)="onFilterChange()" class="filter-select">
+            <option value="movie">By Movie</option>
+            <option value="theater">By Theater</option>
+            <option value="city">By City</option>
+          </select>
+          
+          <select [(ngModel)]="selectedCity" (change)="onFilterChange()" class="filter-select" *ngIf="filterType !== 'city'">
+            <option value="all">All Cities</option>
+            @for (city of cities; track city.id) {
+              <option [value]="city.name">{{ city.name }}</option>
+            }
+          </select>
+          
+          <select [(ngModel)]="selectedTheater" (change)="onFilterChange()" class="filter-select" *ngIf="filterType === 'movie' && selectedCity !== 'all'">
+            <option value="all">All Theaters</option>
+            @for (theater of theaters; track theater.id) {
+              @if (selectedCity === 'all' || theater.city === selectedCity) {
+                <option [value]="theater.id">{{ theater.name }}</option>
+              }
+            }
+          </select>
+        </div>
+      </div>
+
+      <!-- Movies Ranking Table -->
+      @if (filterType === 'movie') {
+        <div class="ranking-table-container">
+          <div class="table-header">
+            <div class="table-icon">🎬</div>
+            <h3>Top Earning Movies</h3>
+          </div>
+          <div class="table-wrapper">
+            <table class="ranking-table">
+              <thead>
+                <tr>
+                  <th class="rank-col">Rank</th>
+                  <th class="poster-col">Poster</th>
+                  <th class="name-col">Movie Title</th>
+                  <th class="genre-col">Genre</th>
+                  <th class="bookings-col">Tickets Sold</th>
+                  <th class="revenue-col">Revenue</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (movie of topMovies; track $index) {
+                  <tr class="ranking-row" [class.rank-1]="$index === 0" [class.rank-2]="$index === 1" [class.rank-3]="$index === 2">
+                    <td class="rank-cell">
+                      <div class="rank-badge" [class.gold]="$index === 0" [class.silver]="$index === 1" [class.bronze]="$index === 2">
+                        {{ $index + 1 }}
+                      </div>
+                    </td>
+                    <td class="poster-cell">
+                      <div class="movie-poster-wrapper">
+                        <img [src]="movie.poster || 'https://via.placeholder.com/100x150?text=No+Poster'" 
+                             [alt]="movie.name" 
+                             class="movie-poster">
+                      </div>
+                    </td>
+                    <td class="name-cell">
+                      <div class="movie-title">{{ movie.name }}</div>
+                    </td>
+                    <td class="genre-cell">
+                      <span class="genre-tag">{{ movie.genre }}</span>
+                    </td>
+                    <td class="bookings-cell">
+                      <div class="stat-value">{{ movie.ticketsSold }}</div>
+                      <div class="stat-label">tickets</div>
+                    </td>
+                    <td class="revenue-cell">
+                      <div class="revenue-amount">₹{{ movie.amount | number:'1.0-0' }}</div>
+                    </td>
+                  </tr>
+                }
+                @if (topMovies.length === 0) {
+                  <tr>
+                    <td colspan="6" class="no-data">No data available</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      }
+
+      <!-- Theaters Ranking Table -->
+      @if (filterType === 'theater') {
+        <div class="ranking-table-container">
+          <div class="table-header">
+            <div class="table-icon">🏛️</div>
+            <h3>Top Earning Theaters</h3>
+          </div>
+          <div class="table-wrapper">
+            <table class="ranking-table">
+              <thead>
+                <tr>
+                  <th class="rank-col">Rank</th>
+                  <th class="name-col">Theater Name</th>
+                  <th class="city-col">City</th>
+                  <th class="bookings-col">Tickets Sold</th>
+                  <th class="revenue-col">Revenue</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (theater of topTheaters; track $index) {
+                  <tr class="ranking-row" [class.rank-1]="$index === 0" [class.rank-2]="$index === 1" [class.rank-3]="$index === 2">
+                    <td class="rank-cell">
+                      <div class="rank-badge" [class.gold]="$index === 0" [class.silver]="$index === 1" [class.bronze]="$index === 2">
+                        {{ $index + 1 }}
+                      </div>
+                    </td>
+                    <td class="name-cell">
+                      <div class="theater-name">{{ theater.name }}</div>
+                    </td>
+                    <td class="city-cell">
+                      <span class="city-tag">{{ theater.city }}</span>
+                    </td>
+                    <td class="bookings-cell">
+                      <div class="stat-value">{{ theater.ticketsSold }}</div>
+                      <div class="stat-label">tickets</div>
+                    </td>
+                    <td class="revenue-cell">
+                      <div class="revenue-amount">₹{{ theater.amount | number:'1.0-0' }}</div>
+                    </td>
+                  </tr>
+                }
+                @if (topTheaters.length === 0) {
+                  <tr>
+                    <td colspan="5" class="no-data">No data available</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      }
+
+      <!-- Cities Ranking Table -->
+      @if (filterType === 'city') {
+        <div class="ranking-table-container">
+          <div class="table-header">
+            <div class="table-icon">🌆</div>
+            <h3>Top Earning Cities</h3>
+          </div>
+          <div class="table-wrapper">
+            <table class="ranking-table">
+              <thead>
+                <tr>
+                  <th class="rank-col">Rank</th>
+                  <th class="name-col">City Name</th>
+                  <th class="bookings-col">Tickets Sold</th>
+                  <th class="revenue-col">Revenue</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (city of topCities; track $index) {
+                  <tr class="ranking-row" [class.rank-1]="$index === 0" [class.rank-2]="$index === 1" [class.rank-3]="$index === 2">
+                    <td class="rank-cell">
+                      <div class="rank-badge" [class.gold]="$index === 0" [class.silver]="$index === 1" [class.bronze]="$index === 2">
+                        {{ $index + 1 }}
+                      </div>
+                    </td>
+                    <td class="name-cell">
+                      <div class="city-name">{{ city.name }}</div>
+                    </td>
+                    <td class="bookings-cell">
+                      <div class="stat-value">{{ city.ticketsSold }}</div>
+                      <div class="stat-label">tickets</div>
+                    </td>
+                    <td class="revenue-cell">
+                      <div class="revenue-amount">₹{{ city.amount | number:'1.0-0' }}</div>
+                    </td>
+                  </tr>
+                }
+                @if (topCities.length === 0) {
+                  <tr>
+                    <td colspan="4" class="no-data">No data available</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

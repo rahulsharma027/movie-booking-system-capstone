@@ -1,0 +1,619 @@
+/* Container */
+.revenue-container {
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Page Header */
+.page-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 3px solid #667eea;
+}
+
+[data-theme="cinephile"] .page-header {
+  border-bottom-color: var(--accent-orange);
+}
+
+.header-content h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="cinephile"] .header-content h1 {
+  background: linear-gradient(135deg, #FF6B35 0%, #FCBF49 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: brightness(1.4) contrast(1.2);
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .subtitle {
+  color: #b0b0b0;
+}
+
+[data-theme="cinephile"] .subtitle {
+  color: #c0c0c0;
+}
+
+/* Income Section */
+.income-section {
+  margin-bottom: 4rem;
+}
+
+.income-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.income-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.income-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.today-card::before {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.weekly-card::before {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.monthly-card::before {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+}
+
+.income-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .income-card {
+  background: #2d2d2d;
+}
+
+[data-theme="cinephile"] .income-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+}
+
+.income-icon {
+  font-size: 4rem;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.today-card .income-icon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.weekly-card .income-icon {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.monthly-card .income-icon {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+}
+
+.income-details {
+  flex: 1;
+  z-index: 1;
+}
+
+.income-label {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+[data-theme="dark"] .income-label {
+  color: #b0b0b0;
+}
+
+[data-theme="cinephile"] .income-label {
+  color: #c0c0c0;
+}
+
+.income-value {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="cinephile"] .income-value {
+  background: linear-gradient(135deg, #FF6B35 0%, #FCBF49 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Rankings Section */
+.rankings-section {
+  background: white;
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .rankings-section {
+  background: #2d2d2d;
+}
+
+[data-theme="cinephile"] .rankings-section {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+}
+
+.rankings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.rankings-header h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="cinephile"] .rankings-header h2 {
+  background: linear-gradient(135deg, #FF6B35 0%, #FCBF49 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: brightness(1.3);
+}
+
+.filter-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  padding: 0.875rem 1.25rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: white;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 180px;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.filter-select:hover {
+  border-color: #667eea;
+}
+
+[data-theme="dark"] .filter-select {
+  background: #1a1a1a;
+  border-color: #404040;
+  color: white;
+}
+
+[data-theme="cinephile"] .filter-select {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme="cinephile"] .filter-select:focus {
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+}
+
+/* Ranking Table Container */
+.ranking-table-container {
+  background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 2px solid #e8ecf7;
+}
+
+[data-theme="dark"] .ranking-table-container {
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  border-color: #404040;
+}
+
+[data-theme="cinephile"] .ranking-table-container {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, #1C1C1C 100%);
+  border-color: var(--border-color);
+}
+
+.table-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.table-icon {
+  font-size: 2.5rem;
+}
+
+.table-header h3 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0;
+  color: #1a1a2e;
+}
+
+[data-theme="dark"] .table-header h3 {
+  color: white;
+}
+
+[data-theme="cinephile"] .table-header h3 {
+  color: var(--text-primary);
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .table-wrapper {
+  background: #2a2a2a;
+}
+
+[data-theme="cinephile"] .table-wrapper {
+  background: var(--bg-card);
+}
+
+/* Ranking Table */
+.ranking-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.ranking-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+[data-theme="cinephile"] .ranking-table thead {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-deep-orange) 100%);
+}
+
+.ranking-table th {
+  padding: 1.5rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+}
+
+.rank-col {
+  width: 80px;
+  text-align: center;
+}
+
+.poster-col {
+  width: 120px;
+}
+
+.genre-col, .city-col {
+  width: 150px;
+}
+
+.bookings-col {
+  width: 150px;
+  text-align: center;
+}
+
+.revenue-col {
+  width: 180px;
+  text-align: right;
+}
+
+/* Table Rows */
+.ranking-row {
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ranking-row:hover {
+  background: #f8f9ff;
+  transform: scale(1.01);
+}
+
+[data-theme="dark"] .ranking-row {
+  border-bottom-color: #404040;
+}
+
+[data-theme="dark"] .ranking-row:hover {
+  background: #3d3d3d;
+}
+
+[data-theme="cinephile"] .ranking-row {
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="cinephile"] .ranking-row:hover {
+  background: #1C1C1C;
+}
+
+.ranking-row.rank-1 {
+  background: linear-gradient(90deg, #fff9e6 0%, #fff 100%);
+}
+
+.ranking-row.rank-2 {
+  background: linear-gradient(90deg, #f5f5f5 0%, #fff 100%);
+}
+
+.ranking-row.rank-3 {
+  background: linear-gradient(90deg, #fff4e6 0%, #fff 100%);
+}
+
+[data-theme="dark"] .ranking-row.rank-1,
+[data-theme="dark"] .ranking-row.rank-2,
+[data-theme="dark"] .ranking-row.rank-3 {
+  background: #2a2a2a;
+}
+
+[data-theme="cinephile"] .ranking-row.rank-1,
+[data-theme="cinephile"] .ranking-row.rank-2,
+[data-theme="cinephile"] .ranking-row.rank-3 {
+  background: var(--bg-card);
+}
+
+/* Table Cells */
+.ranking-table td {
+  padding: 1.5rem 1rem;
+  vertical-align: middle;
+}
+
+.rank-cell {
+  text-align: center;
+}
+
+.rank-badge {
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1.25rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.rank-badge.gold {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #1a1a2e;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+}
+
+.rank-badge.silver {
+  background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 100%);
+  color: #1a1a2e;
+  box-shadow: 0 4px 12px rgba(192, 192, 192, 0.5);
+}
+
+.rank-badge.bronze {
+  background: linear-gradient(135deg, #e5a157 0%, #cd7f32 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(205, 127, 50, 0.5);
+}
+
+[data-theme="cinephile"] .rank-badge {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-saffron) 100%);
+}
+
+/* Movie Poster */
+.poster-cell {
+  padding: 1rem;
+}
+
+.movie-poster-wrapper {
+  position: relative;
+  width: 80px;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.ranking-row:hover .movie-poster-wrapper {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.ranking-row:hover .movie-poster {
+  transform: scale(1.05);
+}
+
+/* Name Cell */
+.name-cell {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1a1a2e;
+}
+
+[data-theme="dark"] .name-cell {
+  color: white;
+}
+
+[data-theme="cinephile"] .name-cell {
+  color: var(--text-primary);
+}
+
+.movie-title, .theater-name, .city-name {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+/* Genre/City Tags */
+.genre-cell, .city-cell {
+  text-align: center;
+}
+
+.genre-tag, .city-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+[data-theme="cinephile"] .genre-tag,
+[data-theme="cinephile"] .city-tag {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-saffron) 100%);
+}
+
+/* Bookings Cell */
+.bookings-cell {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #667eea;
+}
+
+[data-theme="cinephile"] .stat-value {
+  color: var(--accent-orange);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+}
+
+[data-theme="dark"] .stat-label {
+  color: #b0b0b0;
+}
+
+/* Revenue Cell */
+.revenue-cell {
+  text-align: right;
+}
+
+.revenue-amount {
+  font-size: 1.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* No Data */
+.no-data {
+  text-align: center;
+  padding: 3rem;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .income-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .revenue-container {
+    padding: 1.5rem;
+  }
+  
+  .header-content h1 {
+    font-size: 2rem;
+  }
+  
+  .income-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2.5rem;
+  }
+  
+  .income-value {
+    font-size: 1.75rem;
+  }
+  
+  .rankings-section {
+    padding: 2rem;
+  }
+  
+  .table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .ranking-table {
+    min-width: 800px;
+  }
+}

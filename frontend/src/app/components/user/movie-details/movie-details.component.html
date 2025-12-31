@@ -1,0 +1,131 @@
+<div class="movie-details-container" *ngIf="!loading && movie">
+  <button class="back-btn" (click)="goBack()">
+    <span>←</span> Back to Movies
+  </button>
+
+  <div class="details-layout">
+    <!-- Left Side - Movie Info & Show Selection -->
+    <div class="left-section">
+      <div class="movie-header">
+        <img [src]="movie.posterUrl" [alt]="movie.title" class="poster-large" />
+        <div class="header-info">
+          <h1>{{ movie.title }}</h1>
+          <div class="movie-meta">
+            <span class="badge badge-primary">{{ movie.genre }}</span>
+            <span class="meta-item">⭐ {{ movie.rating }}/5</span>
+            <span class="meta-item">🕐 {{ movie.duration }} mins</span>
+            <span class="meta-item">🗣️ {{ movie.language }}</span>
+          </div>
+          <p class="description">{{ movie.description }}</p>
+          <div class="external-links">
+            <a *ngIf="movie.imdbUrl" [href]="movie.imdbUrl" target="_blank" class="btn btn-outline btn-sm">
+              <span>🎬</span> View on IMDB
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show Selection -->
+      <div class="shows-section">
+        <h2>Select Show Time</h2>
+        <div *ngIf="shows.length === 0" class="no-shows">
+          <p>No shows available for this movie currently.</p>
+        </div>
+
+        <div *ngIf="shows.length > 0" class="shows-grid">
+          <div 
+            *ngFor="let show of shows" 
+            class="show-card"
+            [class.selected]="selectedShow?.id === show.id"
+            (click)="selectShow(show)"
+          >
+            <div class="show-theater">{{ show.theater.name }}</div>
+            <div class="show-location">📍 {{ show.theater.city }}</div>
+            <div class="show-datetime">
+              <span class="show-date">📅 {{ show.showDate }}</span>
+              <span class="show-time">🕐 {{ show.showTime }}</span>
+            </div>
+            <div class="show-price">₹{{ show.price }}</div>
+            <div class="show-seats">{{ show.availableSeats }} seats left</div>
+          </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div *ngIf="selectedShow" class="booking-form">
+          <h3>Complete Your Booking</h3>
+          <div class="booking-details">
+            <div class="detail-row">
+              <strong>Theater:</strong>
+              <span>{{ selectedShow.theater.name }}, {{ selectedShow.theater.city }}</span>
+            </div>
+            <div class="detail-row">
+              <strong>Show:</strong>
+              <span>{{ selectedShow.showDate }} at {{ selectedShow.showTime }}</span>
+            </div>
+            <div class="detail-row">
+              <strong>Price per seat:</strong>
+              <span>₹{{ selectedShow.price }}</span>
+            </div>
+          </div>
+
+          <div class="seats-selector">
+            <label>Number of Seats:</label>
+            <div class="seats-input">
+              <button 
+                class="btn btn-outline btn-sm" 
+                (click)="bookingSeats = bookingSeats > 1 ? bookingSeats - 1 : 1"
+              >
+                -
+              </button>
+              <input 
+                type="number" 
+                [(ngModel)]="bookingSeats" 
+                min="1" 
+                [max]="selectedShow.availableSeats"
+                class="seats-number"
+              />
+              <button 
+                class="btn btn-outline btn-sm" 
+                (click)="bookingSeats = bookingSeats < selectedShow.availableSeats ? bookingSeats + 1 : bookingSeats"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="total-amount">
+            <strong>Total Amount:</strong>
+            <span class="amount">₹{{ selectedShow.price * bookingSeats }}</span>
+          </div>
+
+          <button class="btn btn-primary btn-large" (click)="bookTicket()">
+            🎫 Confirm Booking
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side - Trailer -->
+    <div class="right-section">
+      <div class="trailer-container">
+        <h2>🎬 Watch Trailer</h2>
+        <div *ngIf="safeTrailerUrl" class="trailer-wrapper">
+          <iframe 
+            [src]="safeTrailerUrl" 
+            frameborder="0" 
+            allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          ></iframe>
+        </div>
+        <div *ngIf="!safeTrailerUrl" class="no-trailer">
+          <p>Trailer not available</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="loading-container">
+  <div class="spinner"></div>
+  <p>Loading movie details...</p>
+</div>

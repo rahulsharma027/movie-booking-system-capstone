@@ -1,0 +1,81 @@
+<nav class="navbar">
+  <div class="container">
+    <!-- LOGO LOCATION: Replace content below with your logo image -->
+    <a routerLink="/" class="logo">{{ title() }}</a>
+    
+    <div class="nav-links">
+      @if (!authService.isLoggedIn()) {
+        <a routerLink="/movies" class="nav-link">Movies</a>
+        <a routerLink="/login" class="btn btn-outline">Login</a>
+        <a routerLink="/signup" class="btn btn-primary">Sign Up</a>
+      }
+      
+      @if (authService.isLoggedIn() && !authService.isAdmin()) {
+        <a routerLink="/movies" class="nav-link">Movies</a>
+        <a routerLink="/my-bookings" class="nav-link">My Bookings</a>
+        <a routerLink="/profile" class="nav-link">Profile</a>
+        <button (click)="logout()" class="btn btn-outline">Logout</button>
+      }
+      
+      @if (authService.isAdmin()) {
+        <a routerLink="/admin" class="nav-link">Dashboard</a>
+        <a routerLink="/admin/movies" class="nav-link">Movies</a>
+        <a routerLink="/admin/theaters" class="nav-link">Theaters</a>
+        <a routerLink="/admin/shows" class="nav-link">Shows</a>
+        <a routerLink="/admin/users" class="nav-link">Users</a>
+        <a routerLink="/admin/revenue" class="nav-link">Revenue</a>
+        <a routerLink="/admin/profile" class="nav-link">Profile</a>
+        <button (click)="logout()" class="btn btn-outline">Logout</button>
+      }
+    </div>
+  </div>
+</nav>
+
+<main class="main-content">
+  <router-outlet />
+</main>
+
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 class="footer-title">🎬 CineNow</h3>
+        <p class="footer-description">Your ultimate destination for booking movie tickets online. Experience cinema like never before.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a routerLink="/movies">Browse Movies</a></li>
+          <li><a routerLink="/my-bookings">My Bookings</a></li>
+          <li><a routerLink="/profile">My Profile</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-heading">Support</h4>
+        <ul class="footer-links">
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-heading">Connect</h4>
+        <div class="social-links">
+          <a href="#" class="social-link" title="Facebook">📘</a>
+          <a href="#" class="social-link" title="Twitter">🐦</a>
+          <a href="#" class="social-link" title="Instagram">📷</a>
+          <a href="#" class="social-link" title="YouTube">📺</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 CineNow. All rights reserved. Made with ❤️ for movie lovers.</p>
+    </div>
+  </div>
+</footer>

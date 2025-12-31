@@ -1,0 +1,82 @@
+<div class="container">
+  <h1 class="page-title">Admin Profile</h1>
+
+  <div class="profile-grid">
+    <!-- User Info Card -->
+    <div class="profile-card">
+      <div class="card-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <h2>Profile Information</h2>
+      </div>
+      <div class="card-content">
+        <div class="info-item">
+          <span class="info-label">Username</span>
+          <span class="info-value">{{ user?.username }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email</span>
+          <span class="info-value">{{ user?.email }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Role</span>
+          <span class="role-badge">{{ user?.role }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme Selection Card -->
+    <div class="profile-card theme-card">
+      <div class="card-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <h2>Theme Preferences</h2>
+      </div>
+      <div class="card-content">
+        <p class="theme-description">Choose your preferred visual experience</p>
+        <div class="themes-grid">
+          @for (theme of themes; track theme.value) {
+            <div 
+              class="theme-option" 
+              [class.active]="currentTheme === theme.value"
+              (click)="changeTheme(theme.value)">
+              <div class="theme-preview" [attr.data-theme]="theme.value">
+                <div class="preview-bg"></div>
+                <div class="preview-elements">
+                  <div class="preview-bar"></div>
+                  <div class="preview-content"></div>
+                  <div class="preview-accent"></div>
+                </div>
+              </div>
+              <div class="theme-info">
+                <span class="theme-icon">{{ theme.icon }}</span>
+                <div class="theme-text">
+                  <h3>{{ theme.name }}</h3>
+                  <p>{{ theme.description }}</p>
+                </div>
+              </div>
+              @if (currentTheme === theme.value) {
+                <div class="active-indicator">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

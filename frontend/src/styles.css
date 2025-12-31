@@ -1,0 +1,610 @@
+/* Import Classic Cinema Font */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600;700&family=Permanent+Marker&display=swap');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Light Theme */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-card: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+  --primary-color: #1976d2;
+  --primary-hover: #1565c0;
+  --danger-color: #d32f2f;
+  --danger-hover: #c62828;
+  --success-color: #388e3c;
+  --shadow: 0 2px 4px rgba(0,0,0,0.1);
+  --shadow-hover: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-card: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --border-color: #404040;
+  --primary-color: #2196f3;
+  --primary-hover: #1e88e5;
+  --danger-color: #f44336;
+  --danger-hover: #e53935;
+  --success-color: #4caf50;
+  --shadow: 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-hover: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+[data-theme="cinephile"] {
+  /* Cinephile Theme - Modern Transformers Vibe */
+  --bg-primary: #0A0908;
+  --bg-secondary: #1C1C1C;
+  --bg-card: #2C2C2C;
+  --text-primary: #FCBF49;
+  --text-secondary: #EAE2B7;
+  --border-color: #FF6B35;
+  --primary-color: #FF6B35;
+  --primary-hover: #F77F00;
+  --danger-color: #D62828;
+  --danger-hover: #9D0208;
+  --success-color: #06D6A0;
+  --shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  --shadow-hover: 0 8px 24px rgba(247, 127, 0, 0.4);
+  --accent-orange: #FF6B35;
+  --accent-saffron: #FCBF49;
+  --accent-deep-orange: #F77F00;
+  --accent-gold: #EAE2B7;
+  --gradient-primary: linear-gradient(135deg, #FF6B35 0%, #F77F00 100%);
+  --gradient-secondary: linear-gradient(135deg, #FCBF49 0%, #EAE2B7 100%);
+  --gradient-dark: linear-gradient(135deg, #0A0908 0%, #2C2C2C 100%);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Classic Cinema Font Classes */
+.cinema-font {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.retro-cinema-font {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* CineNow Logo Styling */
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: transform 0.2s;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  /* Logo Image: Replace text with <img src="your-logo.png" alt="CineNow" class="logo-img"> */
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Logo Image Styling (when you add your custom logo) */
+.logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Buttons */
+.btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-hover);
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+/* Main Content */
+.main-content {
+  min-height: calc(100vh - 140px);
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Cards */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  margin-top: auto;
+  border-top: 3px solid #667eea;
+}
+
+[data-theme="dark"] .footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-top-color: #667eea;
+}
+
+[data-theme="cinephile"] .footer {
+  background: linear-gradient(135deg, #0D0D0D 0%, #1a1a1a 100%);
+  border-top-color: var(--accent-orange);
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="cinephile"] .footer-title {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-saffron) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-description {
+  color: #b0b0b0;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.footer-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: white;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links li a {
+  color: #b0b0b0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.footer-links li a:hover {
+  color: #667eea;
+  padding-left: 0.5rem;
+}
+
+[data-theme="cinephile"] .footer-links li a:hover {
+  color: var(--accent-orange);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: #667eea;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+[data-theme="cinephile"] .social-link:hover {
+  background: var(--accent-orange);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #808080;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footer-links {
+    align-items: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-danger {
+  color: var(--danger-color);
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+
+/* Loading Spinner */
+.spinner {
+  border: 3px solid var(--border-color);
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Alert/Messages */
+.alert {
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.alert-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--success-color);
+  border: 1px solid var(--success-color);
+}
+
+.alert-error {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+}
+
+.alert-info {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+}
+
+.table tr:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Modal/Dialog */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.close-btn:hover {
+  color: var(--text-primary);
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.badge-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.badge-success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.badge-danger {
+  background-color: var(--danger-color);
+  color: white;
+}

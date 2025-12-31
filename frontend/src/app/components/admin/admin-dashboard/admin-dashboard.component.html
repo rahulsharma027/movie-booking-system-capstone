@@ -1,0 +1,288 @@
+<div class="container">
+  <h1 class="page-title">Admin Dashboard</h1>
+
+  @if (loading) {
+    <div class="flex-center" style="min-height: 300px;">
+      <div class="spinner"></div>
+    </div>
+  } @else {
+    <div class="stats-grid">
+      <div class="stat-card stat-card-purple">
+        <div class="stat-content">
+          <div class="stat-label">Total Movies</div>
+          <div class="stat-value">{{ stats.totalMovies }}</div>
+        </div>
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+            <line x1="7" y1="2" x2="7" y2="22"></line>
+            <line x1="17" y1="2" x2="17" y2="22"></line>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <line x1="2" y1="7" x2="7" y2="7"></line>
+            <line x1="2" y1="17" x2="7" y2="17"></line>
+            <line x1="17" y1="17" x2="22" y2="17"></line>
+            <line x1="17" y1="7" x2="22" y2="7"></line>
+          </svg>
+        </div>
+      </div>
+
+      <div class="stat-card stat-card-blue">
+        <div class="stat-content">
+          <div class="stat-label">Total Theaters</div>
+          <div class="stat-value">{{ stats.totalTheaters }}</div>
+        </div>
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <div class="stat-card stat-card-pink">
+        <div class="stat-content">
+          <div class="stat-label">Total Shows</div>
+          <div class="stat-value">{{ stats.totalShows }}</div>
+        </div>
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </div>
+      </div>
+
+      <div class="stat-card stat-card-gold">
+        <div class="stat-content">
+          <div class="stat-label">Total Bookings</div>
+          <div class="stat-value">{{ stats.totalBookings }}</div>
+        </div>
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="quick-actions">
+      <h2 class="section-title">Quick Actions</h2>
+      <div class="actions-grid">
+        <a routerLink="/admin/movies" class="action-btn action-btn-purple">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+            <line x1="7" y1="2" x2="7" y2="22"></line>
+            <line x1="17" y1="2" x2="17" y2="22"></line>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+          </svg>
+          <span>Manage Movies</span>
+        </a>
+        <a routerLink="/admin/theaters" class="action-btn action-btn-blue">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Manage Theaters</span>
+        </a>
+        <a routerLink="/admin/shows" class="action-btn action-btn-pink">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>Manage Shows</span>
+        </a>
+        <a routerLink="/admin/cities" class="action-btn action-btn-gold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <path d="M9 22V12h6v10"></path>
+          </svg>
+          <span>Manage Cities</span>
+        </a>
+        <a routerLink="/admin/users" class="action-btn action-btn-green">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Manage Users</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Income Analytics Section -->
+    <div class="income-analytics">
+      <h2 class="section-title">💰 Revenue Analytics</h2>
+      
+      <div class="income-cards">
+        <div class="income-card income-today">
+          <div class="income-icon">📅</div>
+          <div class="income-details">
+            <div class="income-label">Today's Income</div>
+            <div class="income-value">₹{{ incomeData.today | number:'1.0-0' }}</div>
+          </div>
+        </div>
+        
+        <div class="income-card income-weekly">
+          <div class="income-icon">📊</div>
+          <div class="income-details">
+            <div class="income-label">Weekly Income</div>
+            <div class="income-value">₹{{ incomeData.weekly | number:'1.0-0' }}</div>
+          </div>
+        </div>
+        
+        <div class="income-card income-monthly">
+          <div class="income-icon">💎</div>
+          <div class="income-details">
+            <div class="income-label">Monthly Income</div>
+            <div class="income-value">₹{{ incomeData.monthly | number:'1.0-0' }}</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Rankings Section -->
+      <div class="rankings-section">
+        <div class="rankings-header">
+          <h3>🏆 Top Performers</h3>
+          <div class="filter-controls">
+            <select [(ngModel)]="filterType" (change)="onFilterChange()" class="filter-select">
+              <option value="movie">By Movie</option>
+              <option value="theater">By Theater</option>
+              <option value="city">By City</option>
+            </select>
+            
+            <select [(ngModel)]="selectedCity" (change)="onFilterChange()" class="filter-select" *ngIf="filterType !== 'city'">
+              <option value="all">All Cities</option>
+              @for (city of cities; track city.id) {
+                <option [value]="city.name">{{ city.name }}</option>
+              }
+            </select>
+            
+            <select [(ngModel)]="selectedTheater" (change)="onFilterChange()" class="filter-select" *ngIf="filterType === 'movie' && selectedCity !== 'all'">
+              <option value="all">All Theaters</option>
+              @for (theater of theaters; track theater.id) {
+                @if (selectedCity === 'all' || theater.city === selectedCity) {
+                  <option [value]="theater.id">{{ theater.name }}</option>
+                }
+              }
+            </select>
+          </div>
+        </div>
+        
+        <div class="rankings-grid">
+          <!-- Movies Ranking -->
+          @if (filterType === 'movie') {
+            <div class="ranking-card">
+              <div class="ranking-title">
+                <span class="ranking-icon">🎬</span>
+                <h4>Top Earning Movies</h4>
+              </div>
+              <div class="ranking-list">
+                @for (movie of topMovies; track $index) {
+                  <div class="ranking-item" [class.rank-1]="$index === 0" [class.rank-2]="$index === 1" [class.rank-3]="$index === 2">
+                    <div class="rank-badge">{{ $index + 1 }}</div>
+                    <div class="rank-info">
+                      <div class="rank-name">{{ movie.name }}</div>
+                      <div class="rank-stats">{{ movie.ticketsSold }} tickets sold</div>
+                    </div>
+                    <div class="rank-amount">₹{{ movie.amount | number:'1.0-0' }}</div>
+                  </div>
+                }
+                @if (topMovies.length === 0) {
+                  <div class="no-data-small">No data available</div>
+                }
+              </div>
+            </div>
+          }
+          
+          <!-- Theaters Ranking -->
+          @if (filterType === 'theater') {
+            <div class="ranking-card">
+              <div class="ranking-title">
+                <span class="ranking-icon">🏛️</span>
+                <h4>Top Earning Theaters</h4>
+              </div>
+              <div class="ranking-list">
+                @for (theater of topTheaters; track $index) {
+                  <div class="ranking-item" [class.rank-1]="$index === 0" [class.rank-2]="$index === 1" [class.rank-3]="$index === 2">
+                    <div class="rank-badge">{{ $index + 1 }}</div>
+                    <div class="rank-info">
+                      <div class="rank-name">{{ theater.name }}</div>
+                      <div class="rank-stats">{{ theater.ticketsSold }} tickets sold</div>
+                    </div>
+                    <div class="rank-amount">₹{{ theater.amount | number:'1.0-0' }}</div>
+                  </div>
+                }
+                @if (topTheaters.length === 0) {
+                  <div class="no-data-small">No data available</div>
+                }
+              </div>
+            </div>
+          }
+          
+          <!-- Cities Ranking -->
+          @if (filterType === 'city') {
+            <div class="ranking-card">
+              <div class="ranking-title">
+                <span class="ranking-icon">🌆</span>
+                <h4>Top Earning Cities</h4>
+              </div>
+              <div class="ranking-list">
+                @for (city of topCities; track $index) {
+                  <div class="ranking-item" [class.rank-1]="$index === 0" [class.rank-2]="$index === 1" [class.rank-3]="$index === 2">
+                    <div class="rank-badge">{{ $index + 1 }}</div>
+                    <div class="rank-info">
+                      <div class="rank-name">{{ city.name }}</div>
+                      <div class="rank-stats">{{ city.ticketsSold }} tickets sold</div>
+                    </div>
+                    <div class="rank-amount">₹{{ city.amount | number:'1.0-0' }}</div>
+                  </div>
+                }
+                @if (topCities.length === 0) {
+                  <div class="no-data-small">No data available</div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    @if (recentBookings.length > 0) {
+      <div class="recent-bookings">
+        <h2 class="section-title">Recent Bookings</h2>
+        <div class="table-responsive">
+          <table class="bookings-table">
+            <thead>
+              <tr>
+                <th>Booking ID</th>
+                <th>User</th>
+                <th>Movie</th>
+                <th>Theater</th>
+                <th>Seats</th>
+                <th>Amount</th>
+                <th>Time</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (booking of recentBookings; track booking.id) {
+                <tr>
+                  <td><span class="booking-ref">{{ booking.bookingReference }}</span></td>
+                  <td><span class="user-name">{{ booking.user.username }}</span></td>
+                  <td><strong>{{ booking.show.movie.title }}</strong></td>
+                  <td>{{ booking.show.theater.name }}</td>
+                  <td><span class="seats-badge">{{ booking.seatsBooked }} seats</span></td>
+                  <td><span class="amount-badge">₹{{ booking.totalAmount }}</span></td>
+                  <td><span class="time-badge">{{ booking.bookingDate | date: 'short' }}</span></td>
+                  <td>
+                    <span class="status-badge" [ngClass]="getStatusClass(booking.status)">
+                      {{ booking.status }}
+                    </span>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    }
+  }
+</div>

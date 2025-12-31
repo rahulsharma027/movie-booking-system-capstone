@@ -1,0 +1,710 @@
+/* Page Title */
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1a1a2e;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dark"] .page-title {
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="cinephile"] .page-title {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-saffron) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Users Table */
+.table-responsive {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+[data-theme="dark"] .table-responsive {
+  background: var(--bg-card);
+}
+
+[data-theme="cinephile"] .table-responsive {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+[data-theme="cinephile"] .users-table thead {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-deep-orange) 100%);
+}
+
+.users-table th {
+  padding: 1.25rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+.users-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.users-table tbody tr:hover {
+  background-color: #f8f9ff;
+}
+
+[data-theme="dark"] .users-table tbody tr:hover {
+  background-color: #2d2d2d;
+}
+
+[data-theme="cinephile"] .users-table tbody tr:hover {
+  background-color: #1C1C1C;
+}
+
+.users-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.users-table td {
+  padding: 1.25rem 1rem;
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+}
+
+/* User Info */
+.user-id {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: #667eea;
+  background: #f0f2ff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+[data-theme="cinephile"] .user-id {
+  color: #FF6B35;
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-info strong {
+  color: var(--text-primary);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+[data-theme="cinephile"] .user-avatar {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-saffron) 100%);
+  color: var(--bg-primary);
+}
+
+/* Role Badge */
+.role-badge {
+  display: inline-block;
+  padding: 0.375rem 0.875rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #4caf50 0%, #81c784 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.role-badge.admin-role {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+[data-theme="cinephile"] .role-badge {
+  background: linear-gradient(135deg, var(--success-color) 0%, #81c784 100%);
+}
+
+[data-theme="cinephile"] .role-badge.admin-role {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-saffron) 100%);
+  color: var(--bg-primary);
+}
+
+.bookings-count {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.view-btn:hover {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.contact-btn:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.gift-btn:hover {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #1a1a2e;
+  transform: translateY(-2px);
+}
+
+[data-theme="cinephile"] .view-btn:hover {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-deep-orange) 100%);
+}
+
+[data-theme="cinephile"] .contact-btn:hover {
+  background: linear-gradient(135deg, var(--accent-saffron) 0%, var(--accent-gold) 100%);
+  color: var(--bg-primary);
+}
+
+[data-theme="cinephile"] .gift-btn:hover {
+  background: linear-gradient(135deg, var(--success-color) 0%, #81c784 100%);
+  color: white;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+
+[data-theme="cinephile"] .modal-overlay {
+  background: rgba(10, 9, 8, 0.85);
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border-radius: 16px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="cinephile"] .modal-content {
+  border: 2px solid var(--border-color);
+  box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+}
+
+.modal-large {
+  width: 90%;
+  max-width: 900px;
+}
+
+.modal-medium {
+  width: 90%;
+  max-width: 600px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 2px solid var(--border-color);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 16px 16px 0 0;
+}
+
+.modal-header-gift {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #1a1a2e;
+}
+
+[data-theme="cinephile"] .modal-header {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-deep-orange) 100%);
+}
+
+[data-theme="cinephile"] .modal-header-gift {
+  background: linear-gradient(135deg, var(--accent-saffron) 0%, var(--accent-gold) 100%);
+  color: var(--bg-primary);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+/* User Summary */
+.user-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+}
+
+[data-theme="cinephile"] .user-summary {
+  border: 1px solid var(--border-color);
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.summary-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.summary-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Bookings List */
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.booking-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.booking-card:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="cinephile"] .booking-card {
+  border-color: var(--border-color);
+}
+
+[data-theme="cinephile"] .booking-card:hover {
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.booking-reference {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+[data-theme="cinephile"] .booking-reference {
+  color: var(--accent-saffron);
+}
+
+.booking-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.detail-value {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.movie-title {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+[data-theme="cinephile"] .movie-title {
+  color: var(--accent-orange);
+}
+
+.seats-info {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+[data-theme="cinephile"] .seats-info {
+  background: var(--bg-primary);
+  color: var(--success-color);
+}
+
+.amount {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #1a1a2e;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+[data-theme="cinephile"] .amount {
+  background: linear-gradient(135deg, var(--accent-saffron) 0%, var(--accent-gold) 100%);
+  color: var(--bg-primary);
+}
+
+.status-badge {
+  padding: 0.375rem 0.875rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-success {
+  background: linear-gradient(135deg, #4caf50 0%, #81c784 100%);
+  color: white;
+}
+
+.badge-danger {
+  background: linear-gradient(135deg, #f44336 0%, #ef5350 100%);
+  color: white;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  color: var(--text-secondary);
+}
+
+.empty-state svg {
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+
+.empty-state p {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+/* Gift Form */
+.gift-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+}
+
+.form-control {
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+[data-theme="cinephile"] .form-control:focus {
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+}
+
+/* Show Preview */
+.show-preview {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="cinephile"] .show-preview {
+  border-color: var(--border-color);
+  background: var(--bg-primary);
+}
+
+.preview-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.preview-item span {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.preview-item strong {
+  font-size: 1.125rem;
+  color: var(--primary-color);
+}
+
+[data-theme="cinephile"] .preview-item strong {
+  color: var(--accent-saffron);
+}
+
+/* Total Amount */
+.total-amount {
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #1a1a2e;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+[data-theme="cinephile"] .total-amount {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-saffron) 100%);
+  color: var(--bg-primary);
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.btn-gift {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #1a1a2e;
+  font-weight: 700;
+}
+
+.btn-gift:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.4);
+}
+
+[data-theme="cinephile"] .btn-gift {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-deep-orange) 100%);
+  color: white;
+}
+
+.btn-gift:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .user-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .users-table {
+    min-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .modal-large,
+  .modal-medium {
+    width: 95%;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .show-preview {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+}

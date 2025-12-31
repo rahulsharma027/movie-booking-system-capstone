@@ -1,0 +1,141 @@
+<div class="admin-container">
+  <div class="page-header">
+    <div class="header-content">
+      <h1>Manage Theaters</h1>
+      <p class="subtitle">Add and manage theater locations and their seating capacity</p>
+    </div>
+    <button class="btn btn-primary" (click)="openAddModal()">
+      <span>+</span> Add New Theater
+    </button>
+  </div>
+
+  <div class="table-container">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="th-id">ID</th>
+          <th class="th-name">Theater Name</th>
+          <th class="th-city">City</th>
+          <th class="th-address">Address</th>
+          <th class="th-capacity">Capacity</th>
+          <th class="th-actions">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (theater of theaters; track theater.id) {
+          <tr class="table-row">
+            <td class="td-id">{{ theater.id }}</td>
+            <td class="td-name">
+              <div class="theater-name">
+                <strong>{{ theater.name }}</strong>
+              </div>
+            </td>
+            <td class="td-city">
+              <span class="city-badge">📍 {{ theater.city }}</span>
+            </td>
+            <td class="td-address">
+              <span class="address-text">{{ theater.address }}</span>
+            </td>
+            <td class="td-capacity">
+              <span class="capacity-badge">💺 {{ theater.capacity }} seats</span>
+            </td>
+            <td class="td-actions">
+              <div class="action-buttons">
+                <button class="btn btn-sm btn-edit" (click)="openEditModal(theater)" title="Edit Theater">
+                  <span>✏️</span> Edit
+                </button>
+                <button class="btn btn-sm btn-delete" (click)="deleteTheater(theater.id)" title="Delete Theater">
+                  <span>🗑️</span> Delete
+                </button>
+              </div>
+            </td>
+          </tr>
+        }
+        @empty {
+          <tr>
+            <td colspan="6" class="empty-state">
+              <div class="empty-content">
+                <span class="empty-icon">🏢</span>
+                <p>No theaters registered. Add your first theater to get started!</p>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  @if (showModal) {
+    <div class="modal-overlay" (click)="closeModal()">
+      <div class="modal modal-medium" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <div class="modal-title-section">
+            <h2>{{ editMode ? 'Edit Theater' : 'Add New Theater' }}</h2>
+            <p class="modal-subtitle">{{ editMode ? 'Update theater information' : 'Register a new theater location' }}</p>
+          </div>
+          <button class="close-btn" (click)="closeModal()">×</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-section">
+            <h3 class="section-heading">Theater Information</h3>
+            
+            <div class="form-group">
+              <label class="form-label">Theater Name <span class="required">*</span></label>
+              <input 
+                type="text" 
+                [(ngModel)]="currentTheater.name" 
+                class="form-control"
+                placeholder="e.g., PVR Cinemas, INOX, Cinepolis"
+              />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">City <span class="required">*</span></label>
+                <select 
+                  [(ngModel)]="currentTheater.city" 
+                  class="form-control">
+                  <option value="" disabled>Select a city</option>
+                  @for (city of cities; track city.id) {
+                    <option [value]="city.name">{{ city.name }}, {{ city.state }}</option>
+                  }
+                </select>
+                <small class="form-hint">💡 Select from available cities</small>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Seating Capacity <span class="required">*</span></label>
+                <input 
+                  type="number" 
+                  [(ngModel)]="currentTheater.capacity" 
+                  class="form-control"
+                  placeholder="e.g., 200"
+                  min="1"
+                />
+                <small class="form-hint">💡 Total number of seats in the theater</small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Full Address <span class="required">*</span></label>
+              <textarea 
+                [(ngModel)]="currentTheater.address" 
+                class="form-control" 
+                rows="3"
+                placeholder="Enter complete theater address including street, landmark, and pincode"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-outline" (click)="closeModal()">Cancel</button>
+          <button class="btn btn-primary btn-large" (click)="saveTheater()">
+            <span>{{ editMode ? '💾 Update Theater' : '➕ Create Theater' }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

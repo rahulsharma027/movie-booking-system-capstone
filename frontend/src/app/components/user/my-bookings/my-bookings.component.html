@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="page-header">
+    <div class="header-content">
+      <h1>🎫 My Bookings</h1>
+      <p class="subtitle">Manage and track all your movie bookings</p>
+    </div>
+    <div class="bookings-count" *ngIf="bookings.length > 0">
+      <span class="count-number">{{ bookings.length }}</span>
+      <span class="count-label">Total Bookings</span>
+    </div>
+  </div>
+
+  @if (loading) {
+    <div class="flex-center" style="min-height: 300px;">
+      <div class="spinner"></div>
+    </div>
+  } @else {
+    @if (bookings.length > 0) {
+      <div class="bookings-container">
+        @for (booking of bookings; track booking.id) {
+          <div class="booking-card" [class.cancelled]="booking.status === 'CANCELLED'">
+            <!-- Left Side: Movie Poster -->
+            <div class="booking-poster">
+              <img [src]="booking.show.movie.posterUrl || 'https://via.placeholder.com/300x450?text=Movie+Poster'" 
+                   [alt]="booking.show.movie.title"
+                   class="poster-image">
+              <div class="poster-overlay">
+                <span class="status-badge" [ngClass]="getStatusClass(booking.status)">
+                  {{ booking.status === 'CONFIRMED' ? '✓ CONFIRMED' : '✕ CANCELLED' }}
+                </span>
+              </div>
+            </div>
+            
+            <!-- Right Side: Booking Details -->
+            <div class="booking-content">
+              <div class="movie-title">
+                <h3>{{ booking.show.movie.title }}</h3>
+                <div class="movie-meta">
+                  <span class="genre-badge">{{ booking.show.movie.genre }}</span>
+                  <span class="duration-badge">🕒 {{ booking.show.movie.duration }} min</span>
+                </div>
+              </div>
+
+              <div class="booking-info">
+                <div class="info-grid">
+                  <div class="info-item">
+                    <div class="info-icon">🎭</div>
+                    <div class="info-details">
+                      <div class="info-label">Theater</div>
+                      <div class="info-value">{{ booking.show.theater.name }}</div>
+                    </div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-icon">📅</div>
+                    <div class="info-details">
+                      <div class="info-label">Show Date & Time</div>
+                      <div class="info-value">{{ booking.show.showDate | date: 'EEE, MMM d, y' }} at {{ booking.show.showTime }}</div>
+                    </div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-icon">🎫</div>
+                    <div class="info-details">
+                      <div class="info-label">Seats Booked</div>
+                      <div class="info-value">{{ booking.seatsBooked }} seats</div>
+                    </div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-icon">💳</div>
+                    <div class="info-details">
+                      <div class="info-label">Total Amount</div>
+                      <div class="info-value amount">₹{{ booking.totalAmount }}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="booking-footer">
+                  <div class="booking-ref">
+                    <span class="ref-label">Booking ID:</span>
+                    <span class="ref-value">{{ booking.bookingReference }}</span>
+                  </div>
+                  <div class="booking-date">
+                    <span class="date-icon">🕒</span>
+                    <span>Booked on {{ booking.bookingDate | date: 'MMM d, y \u2022 h:mm a' }}</span>
+                  </div>
+                </div>
+
+                @if (booking.status === 'CONFIRMED') {
+                  <div class="booking-actions">
+                    <button class="btn-cancel" (click)="cancelBooking(booking.id)">
+                      <span>✕</span> Cancel Booking
+                    </button>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="no-bookings">
+        <div class="empty-icon">🎬</div>
+        <h2>No Bookings Yet</h2>
+        <p>Start your movie journey by booking your first show!</p>
+        <a routerLink="/movies" class="btn-browse">
+          <span>🍿</span> Browse Movies
+        </a>
+      </div>
+    }
+  }
+</div>

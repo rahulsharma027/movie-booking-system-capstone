@@ -1,0 +1,88 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h1>Sign Up</h1>
+    <p class="subtitle">Create your account to start booking movies!</p>
+
+    @if (error) {
+      <div class="alert alert-error">{{ error }}</div>
+    }
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="fullName">Full Name *</label>
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          [(ngModel)]="user.fullName"
+          class="form-control"
+          placeholder="Enter your full name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username *</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="user.username"
+          class="form-control"
+          placeholder="Choose a username"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="user.email"
+          class="form-control"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          [(ngModel)]="user.phone"
+          class="form-control"
+          placeholder="Enter your phone number"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password *</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="user.password"
+          class="form-control"
+          placeholder="Create a password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="loading">
+        @if (loading) {
+          <span>Creating account...</span>
+        } @else {
+          <span>Sign Up</span>
+        }
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <p>Already have an account? <a routerLink="/login">Login</a></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,555 @@
+/* Page Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 3px solid #667eea;
+}
+
+[data-theme="cinephile"] .page-header {
+  border-bottom-color: var(--accent-orange);
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="cinephile"] .header-content h1 {
+  background: linear-gradient(135deg, #FF6B35 0%, #FCBF49 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+[data-theme="dark"] .subtitle {
+  color: #b0b0b0;
+}
+
+[data-theme="cinephile"] .subtitle {
+  color: #c0c0c0;
+}
+
+.bookings-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+[data-theme="cinephile"] .bookings-count {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-saffron) 100%);
+}
+
+.count-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.count-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+/* Bookings Container */
+.bookings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Booking Card */
+.booking-card {
+  display: flex;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.booking-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+[data-theme="dark"] .booking-card {
+  background: #2d2d2d;
+}
+
+[data-theme="cinephile"] .booking-card {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+[data-theme="cinephile"] .booking-card:hover {
+  border-color: var(--accent-orange);
+}
+
+.booking-card.cancelled {
+  opacity: 0.7;
+  border-color: #f5576c;
+}
+
+.booking-card.cancelled:hover {
+  border-color: #f5576c;
+}
+
+/* Poster Section */
+.booking-poster {
+  position: relative;
+  width: 336px;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.poster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: brightness(0.95);
+}
+
+.booking-card:hover .poster-image {
+  transform: scale(1.1);
+  filter: brightness(1);
+}
+
+.poster-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 100%);
+}
+
+/* Status Badge */
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.badge-success {
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+  color: white;
+}
+
+.badge-danger {
+  background: linear-gradient(135deg, #f44336 0%, #ef5350 100%);
+  color: white;
+}
+
+/* Booking Content */
+.booking-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.movie-title h3 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  color: #1a1a2e;
+  line-height: 1.2;
+}
+
+[data-theme="dark"] .movie-title h3 {
+  color: white;
+}
+
+[data-theme="cinephile"] .movie-title h3 {
+  color: var(--text-primary);
+}
+
+.movie-meta {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.genre-badge, .duration-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.genre-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+[data-theme="cinephile"] .genre-badge {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-saffron) 100%);
+}
+
+.duration-badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+[data-theme="dark"] .duration-badge {
+  background: rgba(76, 175, 80, 0.2);
+  color: #81c784;
+}
+
+[data-theme="cinephile"] .duration-badge {
+  background: rgba(252, 191, 73, 0.2);
+  color: var(--accent-saffron);
+}
+
+/* Info Grid */
+.booking-info {
+  flex: 1;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+  border-radius: 12px;
+  border: 2px solid #e8ecf7;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  border-color: #667eea;
+  transform: translateX(4px);
+}
+
+[data-theme="dark"] .info-item {
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  border-color: #404040;
+}
+
+[data-theme="cinephile"] .info-item {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, #1C1C1C 100%);
+  border-color: var(--border-color);
+}
+
+[data-theme="cinephile"] .info-item:hover {
+  border-color: var(--accent-orange);
+}
+
+.info-icon {
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .info-icon {
+  background: #2a2a2a;
+}
+
+[data-theme="cinephile"] .info-icon {
+  background: var(--bg-card);
+}
+
+.info-details {
+  flex: 1;
+}
+
+.info-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .info-label {
+  color: #888;
+}
+
+[data-theme="cinephile"] .info-label {
+  color: #999;
+}
+
+.info-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+[data-theme="dark"] .info-value {
+  color: white;
+}
+
+[data-theme="cinephile"] .info-value {
+  color: var(--text-primary);
+}
+
+.info-value.amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Booking Footer */
+.booking-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f8f9ff;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .booking-footer {
+  background: #1a1a1a;
+}
+
+[data-theme="cinephile"] .booking-footer {
+  background: var(--bg-secondary);
+}
+
+.booking-ref {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ref-label {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.ref-value {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #667eea;
+  background: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+}
+
+[data-theme="dark"] .ref-value {
+  background: #2a2a2a;
+}
+
+[data-theme="cinephile"] .ref-value {
+  color: var(--accent-orange);
+  background: var(--bg-card);
+}
+
+.booking-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+[data-theme="dark"] .booking-date {
+  color: #b0b0b0;
+}
+
+[data-theme="cinephile"] .booking-date {
+  color: #c0c0c0;
+}
+
+.date-icon {
+  font-size: 1.1rem;
+}
+
+/* Booking Actions */
+.booking-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-cancel {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #f44336 0%, #ef5350 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
+.btn-cancel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(244, 67, 54, 0.4);
+}
+
+/* No Bookings State */
+.no-bookings {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+  border-radius: 20px;
+  border: 2px dashed #e0e0e0;
+}
+
+[data-theme="dark"] .no-bookings {
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  border-color: #404040;
+}
+
+[data-theme="cinephile"] .no-bookings {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+  border-color: var(--border-color);
+}
+
+.empty-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+
+.no-bookings h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: #1a1a2e;
+}
+
+[data-theme="dark"] .no-bookings h2 {
+  color: white;
+}
+
+[data-theme="cinephile"] .no-bookings h2 {
+  color: var(--text-primary);
+}
+
+.no-bookings p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0 0 2rem 0;
+}
+
+[data-theme="dark"] .no-bookings p {
+  color: #b0b0b0;
+}
+
+[data-theme="cinephile"] .no-bookings p {
+  color: #c0c0c0;
+}
+
+.btn-browse {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-browse:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(102, 126, 234, 0.4);
+}
+
+[data-theme="cinephile"] .btn-browse {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-saffron) 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .bookings-count {
+    align-self: stretch;
+  }
+  
+  .booking-card {
+    flex-direction: column;
+  }
+  
+  .booking-poster {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .booking-content {
+    padding: 1.5rem;
+  }
+  
+  .movie-title h3 {
+    font-size: 1.5rem;
+  }
+  
+  .booking-footer {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+}

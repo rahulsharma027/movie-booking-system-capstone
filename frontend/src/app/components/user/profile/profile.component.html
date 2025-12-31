@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="profile-container">
+    <h1>👤 My Profile</h1>
+
+    @if (successMessage) {
+      <div class="alert alert-success">{{ successMessage }}</div>
+    }
+
+    @if (errorMessage) {
+      <div class="alert alert-error">{{ errorMessage }}</div>
+    }
+
+    <div class="profile-card">
+      <div class="profile-section">
+        <h2>Personal Information</h2>
+        
+        @if (!editMode) {
+          <div class="info-group">
+            <label>Full Name:</label>
+            <p>{{ user.fullName }}</p>
+          </div>
+
+          <div class="info-group">
+            <label>Username:</label>
+            <p>{{ user.username }}</p>
+          </div>
+
+          <div class="info-group">
+            <label>Email:</label>
+            <p>{{ user.email }}</p>
+          </div>
+
+          <div class="info-group">
+            <label>Phone:</label>
+            <p>{{ user.phone || 'Not provided' }}</p>
+          </div>
+
+          <div class="info-group">
+            <label>Role:</label>
+            <p><span class="badge badge-primary">{{ user.role }}</span></p>
+          </div>
+
+          <button class="btn btn-primary" (click)="editMode = true">Edit Profile</button>
+        } @else {
+          <div class="form-group">
+            <label>Full Name:</label>
+            <input type="text" [(ngModel)]="user.fullName" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label>Email:</label>
+            <input type="email" [(ngModel)]="user.email" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label>Phone:</label>
+            <input type="tel" [(ngModel)]="user.phone" class="form-control" />
+          </div>
+
+          <div class="flex gap-2">
+            <button class="btn btn-outline" (click)="editMode = false; loadProfile()">Cancel</button>
+            <button class="btn btn-primary" (click)="saveProfile()">Save Changes</button>
+          </div>
+        }
+      </div>
+
+      <div class="profile-section">
+        <h2>Theme Preferences</h2>
+        <div class="theme-toggle">
+          <p>Current Theme: <strong>{{ user.theme === 'light' ? 'Light' : 'Dark' }}</strong></p>
+          <button class="btn btn-outline" (click)="toggleTheme()">
+            {{ user.theme === 'light' ? '🌙 Switch to Dark' : '☀️ Switch to Light' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h2>Security</h2>
+        
+        @if (!passwordMode) {
+          <button class="btn btn-outline" (click)="passwordMode = true">Change Password</button>
+        } @else {
+          <div class="form-group">
+            <label>Current Password:</label>
+            <input
+              type="password"
+              [(ngModel)]="passwordData.currentPassword"
+              class="form-control"
+              placeholder="Enter current password"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>New Password:</label>
+            <input
+              type="password"
+              [(ngModel)]="passwordData.newPassword"
+              class="form-control"
+              placeholder="Enter new password"
+            />
+          </div>
+
+          <div class="flex gap-2">
+            <button class="btn btn-outline" (click)="passwordMode = false; passwordData = {currentPassword: '', newPassword: ''}">Cancel</button>
+            <button class="btn btn-primary" (click)="changePassword()">Update Password</button>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

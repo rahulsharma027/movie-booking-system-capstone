@@ -1,0 +1,175 @@
+<div class="movies-page">
+  <!-- City Selection Modal -->
+  @if (showCityModal) {
+    <div class="city-modal-overlay">
+      <div class="city-modal">
+        <h2>🌆 Select Your City</h2>
+        <p class="modal-subtitle">Choose your city to see movies playing near you</p>
+        
+        <div class="cities-grid">
+          @for (city of availableCities; track city.id) {
+            <button class="city-card" (click)="selectCity(city)">
+              @if (city.posterUrl) {
+                <img [src]="city.posterUrl" [alt]="city.name" class="city-image">
+              }
+              <div class="city-overlay">
+                <div class="city-icon">📍</div>
+                <div class="city-name">{{ city.name }}</div>
+                <div class="city-state">{{ city.state }}</div>
+              </div>
+            </button>
+          }
+        </div>
+
+        @if (availableCities.length === 0) {
+          <div class="no-cities">
+            <p>No cities available yet. Please check back later!</p>
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+  <!-- City Info Window -->
+  @if (showCityInfo && selectedCityDetails) {
+    <div class="city-info-window" [@slideIn]>
+      <button class="close-info-btn" (click)="closeCityInfo()">×</button>
+      @if (selectedCityDetails.posterUrl) {
+        <img [src]="selectedCityDetails.posterUrl" [alt]="selectedCityDetails.name" class="info-image">
+      }
+      <div class="info-content">
+        <h3>🎬 Welcome to {{ selectedCityDetails.name }}!</h3>
+        <p class="info-location">{{ selectedCityDetails.state }}</p>
+        @if (selectedCityDetails.description) {
+          <p class="info-description">{{ selectedCityDetails.description }}</p>
+        }
+      </div>
+    </div>
+  }
+
+  <div class="hero-section" [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + getHeroBackgroundImage() + ')'">
+    <div class="container">
+      <!-- LOGO LOCATION: Optional hero logo can be added here -->
+      <h1 class="hero-title">Discover Amazing Movies</h1>
+      <p class="hero-subtitle">Book your favorite movies with just a few clicks</p>
+      
+      @if (selectedCity) {
+        <div class="selected-city-badge" (click)="changeCity()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>{{ selectedCity }}</span>
+          <button class="change-city-btn">Change City</button>
+        </div>
+      }
+      
+      <div class="search-bar">
+        <input 
+          type="text" 
+          [(ngModel)]="searchQuery" 
+          (input)="onSearch()"
+          placeholder="Search movies by title or genre..."
+          class="search-input"
+        />
+        <button class="search-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    @if (loading) {
+      <div class="loading-section">
+        <div class="spinner"></div>
+        <p>Loading movies...</p>
+      </div>
+    } @else {
+      <!-- Now Showing Section -->
+      <section class="movies-section">
+        <div class="section-header">
+          <h2 class="section-title">Now Showing</h2>
+          <div class="section-badge">{{ nowShowingMovies.length }} Movies</div>
+        </div>
+
+        @if (nowShowingMovies.length > 0) {
+          <div class="movies-grid">
+            @for (movie of nowShowingMovies; track movie.id) {
+              <div class="movie-card">
+                <div class="movie-poster-wrapper">
+                  <img [src]="movie.posterUrl" [alt]="movie.title" class="movie-poster" />
+                  <div class="movie-overlay">
+                    <div class="rating-badge">⭐ {{ movie.rating }}</div>
+                  </div>
+                </div>
+                
+                <div class="movie-info">
+                  <h3 class="movie-title">{{ movie.title }}</h3>
+                  <div class="movie-meta">
+                    <span class="meta-badge">{{ movie.genre }}</span>
+                    <span class="meta-badge">{{ movie.language }}</span>
+                  </div>
+                  <div class="movie-duration">🕐 {{ movie.duration }} mins</div>
+                </div>
+
+                <a [routerLink]="['/movie', movie.id]" class="book-btn">
+                  🎫 Book Now
+                </a>
+              </div>
+            }
+          </div>
+        } @else {
+          <div class="no-movies">
+            <p>No movies currently showing. Check back soon!</p>
+          </div>
+        }
+      </section>
+
+      <!-- Coming Soon Section -->
+      <section class="movies-section coming-soon-section">
+        <div class="section-header">
+          <h2 class="section-title">🚀 Coming Soon</h2>
+          <div class="section-badge coming-soon-badge">{{ comingSoonMovies.length }} Movies</div>
+        </div>
+
+        @if (comingSoonMovies.length > 0) {
+          <div class="movies-grid">
+            @for (movie of comingSoonMovies; track movie.id) {
+              <div class="movie-card coming-soon-card">
+                <div class="movie-poster-wrapper">
+                  <img [src]="movie.posterUrl" [alt]="movie.title" class="movie-poster" />
+                  <div class="movie-overlay">
+                    <div class="rating-badge">⭐ {{ movie.rating }}</div>
+                    <div class="coming-soon-tag">Coming Soon</div>
+                  </div>
+                </div>
+                
+                <div class="movie-info">
+                  <h3 class="movie-title">{{ movie.title }}</h3>
+                  <div class="movie-meta">
+                    <span class="meta-badge">{{ movie.genre }}</span>
+                    <span class="meta-badge">{{ movie.language }}</span>
+                  </div>
+                  <div class="movie-duration">🕐 {{ movie.duration }} mins</div>
+                  <div class="release-date">📅 {{ movie.releaseDate }}</div>
+                </div>
+
+                <div class="notify-btn">
+                  🔔 Notify Me
+                </div>
+              </div>
+            }
+          </div>
+        } @else {
+          <div class="no-movies">
+            <p>No upcoming movies at the moment.</p>
+          </div>
+        }
+      </section>
+    }
+  </div>
+</div>

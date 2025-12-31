@@ -1,0 +1,182 @@
+<div class="admin-container">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="header-content">
+      <h1>🌆 Manage Cities</h1>
+      <p class="subtitle">Add and manage cities for theater locations</p>
+    </div>
+    <button class="btn-primary" (click)="openAddModal()">
+      <span>+</span> Add City
+    </button>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading cities...</p>
+  </div>
+
+  <!-- Cities Table -->
+  <div *ngIf="!loading" class="table-container">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="th-id">ID</th>
+          <th>City Name</th>
+          <th>State</th>
+          <th>Status</th>
+          <th class="th-date">Created At</th>
+          <th class="th-actions">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let city of cities">
+          <td class="td-id">{{ city.id }}</td>
+          <td>
+            <strong>{{ city.name }}</strong>
+          </td>
+          <td>{{ city.state }}</td>
+          <td>
+            <span class="badge" [ngClass]="city.isActive ? 'badge-active' : 'badge-inactive'">
+              {{ city.isActive ? 'Active' : 'Inactive' }}
+            </span>
+          </td>
+          <td class="td-date">{{ city.createdAt | date: 'MMM dd, yyyy' }}</td>
+          <td class="td-actions">
+            <button class="btn-icon btn-edit" (click)="openEditModal(city)" title="Edit">
+              ✏️
+            </button>
+            <button 
+              class="btn-icon btn-toggle" 
+              (click)="toggleStatus(city)" 
+              [title]="city.isActive ? 'Deactivate' : 'Activate'">
+              {{ city.isActive ? '🔓' : '🔒' }}
+            </button>
+            <button class="btn-icon btn-delete" (click)="deleteCity(city)" title="Delete">
+              🗑️
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="cities.length === 0">
+          <td colspan="6" class="no-data">
+            <p>No cities found. Add your first city!</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add/Edit Modal -->
+  <div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <div class="header-left">
+          <div class="header-icon">🌆</div>
+          <div>
+            <h2>{{ isEditMode ? 'Edit City' : 'Add New City' }}</h2>
+            <p class="header-subtitle">{{ isEditMode ? 'Update city information' : 'Create a new city for theater locations' }}</p>
+          </div>
+        </div>
+        <button class="btn-close" (click)="closeModal()">×</button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-grid">
+          <!-- Left Column - Form Fields -->
+          <div class="form-column">
+            <div class="form-group">
+              <label><span class="label-icon">📍</span> City Name *</label>
+              <input 
+                type="text" 
+                [(ngModel)]="currentCity.name" 
+                placeholder="e.g., Mumbai"
+                class="form-control"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label><span class="label-icon">🗺️</span> State *</label>
+              <input 
+                type="text" 
+                [(ngModel)]="currentCity.state" 
+                placeholder="e.g., Maharashtra"
+                class="form-control"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label><span class="label-icon">🖼️</span> Poster URL *</label>
+              <input 
+                type="url" 
+                [(ngModel)]="currentCity.posterUrl" 
+                placeholder="https://example.com/city-image.jpg"
+                class="form-control"
+                required>
+              <small class="form-hint">💡 High-quality image (recommended: 1200x800px)</small>
+            </div>
+
+            <div class="form-group">
+              <label><span class="label-icon">✍️</span> Description</label>
+              <textarea 
+                [(ngModel)]="currentCity.description" 
+                placeholder="Describe what makes this city special..."
+                class="form-control textarea"
+                rows="4"></textarea>
+              <small class="form-hint">💬 This will be shown to users when they select this city</small>
+            </div>
+
+            <div class="form-group">
+              <label class="toggle-label">
+                <input 
+                  type="checkbox" 
+                  [(ngModel)]="currentCity.isActive"
+                  class="toggle-checkbox">
+                <span class="toggle-switch"></span>
+                <span class="toggle-text">City is Active</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Right Column - Image Preview -->
+          <div class="preview-column">
+            <div class="preview-card">
+              <div class="preview-header">
+                <span class="preview-icon">👁️</span>
+                <h3>Preview</h3>
+              </div>
+              <div class="preview-image">
+                <img 
+                  *ngIf="currentCity.posterUrl" 
+                  [src]="currentCity.posterUrl" 
+                  [alt]="currentCity.name"
+                  (error)="$event.target.src='https://via.placeholder.com/400x300?text=Invalid+URL'"
+                  class="preview-img">
+                <div *ngIf="!currentCity.posterUrl" class="preview-placeholder">
+                  <div class="placeholder-icon">🖼️</div>
+                  <p>Enter a poster URL to see preview</p>
+                </div>
+              </div>
+              <div class="preview-info" *ngIf="currentCity.name || currentCity.state">
+                <h4>{{ currentCity.name || 'City Name' }}</h4>
+                <p>{{ currentCity.state || 'State' }}</p>
+                <span class="preview-badge" [class.active]="currentCity.isActive">
+                  {{ currentCity.isActive ? '✓ Active' : '○ Inactive' }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-cancel" (click)="closeModal()">
+          <span>✕</span> Cancel
+        </button>
+        <button class="btn-save" (click)="saveCity()">
+          <span>{{ isEditMode ? '💾' : '✓' }}</span>
+          {{ isEditMode ? 'Update City' : 'Create City' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
