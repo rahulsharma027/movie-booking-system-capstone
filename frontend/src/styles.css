@@ -1,6 +1,3 @@
-/* Import Classic Cinema Font */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600;700&family=Permanent+Marker&display=swap');
-
 /* Global Styles */
 * {
   margin: 0;
@@ -21,11 +18,11 @@
   --danger-color: #d32f2f;
   --danger-hover: #c62828;
   --success-color: #388e3c;
-  --shadow: 0 2px 4px rgba(0,0,0,0.1);
-  --shadow-hover: 0 4px 8px rgba(0,0,0,0.15);
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   /* Dark Theme */
   --bg-primary: #1a1a1a;
   --bg-secondary: #2d2d2d;
@@ -38,36 +35,37 @@
   --danger-color: #f44336;
   --danger-hover: #e53935;
   --success-color: #4caf50;
-  --shadow: 0 2px 4px rgba(0,0,0,0.3);
-  --shadow-hover: 0 4px 8px rgba(0,0,0,0.4);
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
-[data-theme="cinephile"] {
+[data-theme='cinephile'] {
   /* Cinephile Theme - Modern Transformers Vibe */
-  --bg-primary: #0A0908;
-  --bg-secondary: #1C1C1C;
-  --bg-card: #2C2C2C;
-  --text-primary: #FCBF49;
-  --text-secondary: #EAE2B7;
-  --border-color: #FF6B35;
-  --primary-color: #FF6B35;
-  --primary-hover: #F77F00;
-  --danger-color: #D62828;
-  --danger-hover: #9D0208;
-  --success-color: #06D6A0;
+  --bg-primary: #0a0908;
+  --bg-secondary: #1c1c1c;
+  --bg-card: #2c2c2c;
+  --text-primary: #fcbf49;
+  --text-secondary: #eae2b7;
+  --border-color: #ff6b35;
+  --primary-color: #ff6b35;
+  --primary-hover: #f77f00;
+  --danger-color: #d62828;
+  --danger-hover: #9d0208;
+  --success-color: #06d6a0;
   --shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
   --shadow-hover: 0 8px 24px rgba(247, 127, 0, 0.4);
-  --accent-orange: #FF6B35;
-  --accent-saffron: #FCBF49;
-  --accent-deep-orange: #F77F00;
-  --accent-gold: #EAE2B7;
-  --gradient-primary: linear-gradient(135deg, #FF6B35 0%, #F77F00 100%);
-  --gradient-secondary: linear-gradient(135deg, #FCBF49 0%, #EAE2B7 100%);
-  --gradient-dark: linear-gradient(135deg, #0A0908 0%, #2C2C2C 100%);
+  --accent-orange: #ff6b35;
+  --accent-saffron: #fcbf49;
+  --accent-deep-orange: #f77f00;
+  --accent-gold: #eae2b7;
+  --gradient-primary: linear-gradient(135deg, #ff6b35 0%, #f77f00 100%);
+  --gradient-secondary: linear-gradient(135deg, #fcbf49 0%, #eae2b7 100%);
+  --gradient-dark: linear-gradient(135deg, #0a0908 0%, #2c2c2c 100%);
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
@@ -278,7 +276,9 @@ body {
 }
 
 @media (max-width: 768px) {
-  .grid-2, .grid-3, .grid-4 {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
     grid-template-columns: 1fr;
   }
 }
@@ -291,13 +291,13 @@ body {
   border-top: 3px solid #667eea;
 }
 
-[data-theme="dark"] .footer {
+[data-theme='dark'] .footer {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   border-top-color: #667eea;
 }
 
-[data-theme="cinephile"] .footer {
-  background: linear-gradient(135deg, #0D0D0D 0%, #1a1a1a 100%);
+[data-theme='cinephile'] .footer {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
   border-top-color: var(--accent-orange);
 }
 
@@ -330,7 +330,7 @@ body {
   background-clip: text;
 }
 
-[data-theme="cinephile"] .footer-title {
+[data-theme='cinephile'] .footer-title {
   background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-saffron) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -371,7 +371,7 @@ body {
   padding-left: 0.5rem;
 }
 
-[data-theme="cinephile"] .footer-links li a:hover {
+[data-theme='cinephile'] .footer-links li a:hover {
   color: var(--accent-orange);
 }
 
@@ -399,7 +399,7 @@ body {
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
-[data-theme="cinephile"] .social-link:hover {
+[data-theme='cinephile'] .social-link:hover {
   background: var(--accent-orange);
   box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
 }
@@ -421,11 +421,11 @@ body {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .footer-links {
     align-items: center;
   }
-  
+
   .social-links {
     justify-content: center;
   }
@@ -444,15 +444,31 @@ body {
   color: var(--danger-color);
 }
 
-.mt-1 { margin-top: 0.5rem; }
-.mt-2 { margin-top: 1rem; }
-.mt-3 { margin-top: 1.5rem; }
-.mt-4 { margin-top: 2rem; }
+.mt-1 {
+  margin-top: 0.5rem;
+}
+.mt-2 {
+  margin-top: 1rem;
+}
+.mt-3 {
+  margin-top: 1.5rem;
+}
+.mt-4 {
+  margin-top: 2rem;
+}
 
-.mb-1 { margin-bottom: 0.5rem; }
-.mb-2 { margin-bottom: 1rem; }
-.mb-3 { margin-bottom: 1.5rem; }
-.mb-4 { margin-bottom: 2rem; }
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+.mb-2 {
+  margin-bottom: 1rem;
+}
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+.mb-4 {
+  margin-bottom: 2rem;
+}
 
 .flex {
   display: flex;
@@ -470,9 +486,15 @@ body {
   align-items: center;
 }
 
-.gap-1 { gap: 0.5rem; }
-.gap-2 { gap: 1rem; }
-.gap-3 { gap: 1.5rem; }
+.gap-1 {
+  gap: 0.5rem;
+}
+.gap-2 {
+  gap: 1rem;
+}
+.gap-3 {
+  gap: 1.5rem;
+}
 
 /* Loading Spinner */
 .spinner {
@@ -485,8 +507,12 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Alert/Messages */
