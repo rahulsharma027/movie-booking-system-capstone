@@ -1,5 +1,6 @@
 package com.moviebooking;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +9,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class MovieBookingApplication {
+
+    @Value("${CORS_ALLOWED_ORIGINS:*}")
+    private String corsAllowedOrigins;
 
     public static void main(String[] args) {
         SpringApplication.run(MovieBookingApplication.class, args);
@@ -25,11 +29,12 @@ public class MovieBookingApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+                String[] origins = corsAllowedOrigins.split(",");
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:4200")
+                        .allowedOrigins(origins)
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowCredentials(false);
             }
         };
     }
