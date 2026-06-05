@@ -239,10 +239,6 @@ The project includes a Jenkinsfile that automates:
 6. Deployment to test environment
 7. Health checks
 
-### AWS Deployment
-
-Refer to [aws/README.md](aws/README.md) for detailed AWS deployment instructions.
-
 Quick deployment:
 ```bash
 cd aws
@@ -276,11 +272,6 @@ chmod +x deploy.sh
 - **Show Management** - Coming soon
 - **Booking Management** - Coming soon
 
-### Documentation
-- [ADMIN_GUIDE.md](ADMIN_GUIDE.md) - Complete admin panel guide
-- [ADMIN_QUICK_START.md](ADMIN_QUICK_START.md) - Quick reference
-- [ADMIN_ARCHITECTURE.md](ADMIN_ARCHITECTURE.md) - Technical architecture
-- [ADMIN_COMPLETE.md](ADMIN_COMPLETE.md) - Implementation checklist
 
 ## 📊 Database Schema
 
@@ -305,7 +296,7 @@ This project is licensed under the MIT License.
 
 ## 👥 Authors
 
-Your Name - [your.email@example.com](mailto:your.email@example.com)
+Your Name - [rahulsharma84244@gmail.com](mailto:rahulsharma84244@gmail.com)
 
 ## 🙏 Acknowledgments
 
