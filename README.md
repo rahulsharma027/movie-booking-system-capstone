@@ -226,6 +226,54 @@ cd frontend
 npm test
 ```
 
+
+
+## Screen Shots
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 18 41ΓÇ»PM" src="https://github.com/user-attachments/assets/c4fa0879-b5fa-4e7f-84a7-afd26a9adead" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 59 00ΓÇ»PM" src="https://github.com/user-attachments/assets/fd865142-7503-4a90-a220-ee7f60fc5505" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 58 15ΓÇ»PM" src="https://github.com/user-attachments/assets/d7f4f735-e8ce-486a-bad6-59d9c39612af" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 57 58ΓÇ»PM" src="https://github.com/user-attachments/assets/302e49b2-3f39-4786-9f4d-34ce050bcd2c" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 57 50ΓÇ»PM" src="https://github.com/user-attachments/assets/0d3dfda9-f649-4d7a-b16c-88bd18734b97" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 57 46ΓÇ»PM" src="https://github.com/user-attachments/assets/ddca3a16-07e6-4ac2-85d9-a3d1ad1cebf5" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 57 17ΓÇ»PM" src="https://github.com/user-attachments/assets/f932685d-a21b-441b-a9e4-5fd116838055" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 56 50ΓÇ»PM" src="https://github.com/user-attachments/assets/8011d1e0-5f05-48e4-997b-fe7af7461702" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 56 43ΓÇ»PM" src="https://github.com/user-attachments/assets/cd6cc60e-9017-4fc8-b209-bb81303d1707" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 56 36ΓÇ»PM" src="https://github.com/user-attachments/assets/4df2f2e1-d6e9-4587-9859-c0ed3856351a" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 56 18ΓÇ»PM" src="https://github.com/user-attachments/assets/a355416f-7df1-472a-9e0c-743590a08db9" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 55 42ΓÇ»PM" src="https://github.com/user-attachments/assets/be2b0024-20a4-45e9-b2ea-f49119a3cd7d" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 55 33ΓÇ»PM" src="https://github.com/user-attachments/assets/21cea9e4-863d-4ab0-b97a-6adf05205f63" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 55 24ΓÇ»PM" src="https://github.com/user-attachments/assets/9a58ac24-53a8-4387-97f6-7a72c0d94f2c" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 55 18ΓÇ»PM" src="https://github.com/user-attachments/assets/ef14c812-af06-43d2-bf31-e3e04039cc6a" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 55 02ΓÇ»PM" src="https://github.com/user-attachments/assets/4fd41a37-4f79-476a-9139-4e861a3cbbbb" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 54 55ΓÇ»PM" src="https://github.com/user-attachments/assets/0c29adf4-6299-46dc-b1cb-7040f64162ab" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 54 47ΓÇ»PM" src="https://github.com/user-attachments/assets/30596457-ab39-45b1-9486-b8e67764a32b" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 54 41ΓÇ»PM" src="https://github.com/user-attachments/assets/5ffc0e90-8c0d-4b99-afb8-9f9aeea0466e" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 54 31ΓÇ»PM" src="https://github.com/user-attachments/assets/3a494bd0-c144-4381-9d2b-497d515cdb7d" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 54 24ΓÇ»PM" src="https://github.com/user-attachments/assets/ca70144c-251e-4a11-a140-2ae13adb24f7" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 54 16ΓÇ»PM" src="https://github.com/user-attachments/assets/9118fb40-5eb9-4126-b306-35e3c666649e" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 54 09ΓÇ»PM" src="https://github.com/user-attachments/assets/f1543a5d-c4c4-4c85-a144-49e8703ecc17" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 54 02ΓÇ»PM" src="https://github.com/user-attachments/assets/dd76d3bd-6b1f-4efd-b53c-a5d766023602" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 53 39ΓÇ»PM" src="https://github.com/user-attachments/assets/f56a34d1-b06b-44b5-9488-e19633384687" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 53 28ΓÇ»PM" src="https://github.com/user-attachments/assets/5659f159-b030-4bd8-8d98-b4c5a40674f6" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 53 08ΓÇ»PM" src="https://github.com/user-attachments/assets/b3d5f5b6-3148-4370-a571-0218106eecf5" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 52 06ΓÇ»PM" src="https://github.com/user-attachments/assets/df6d14b0-1bfc-4da4-a84f-affa7d0fd573" />
+<img width="1728" height="1117" alt="Screenshot 2026-01-03 at 6 51 43ΓÇ»PM" src="https://github.com/user-attachments/assets/c3224f63-4133-4de0-9fa3-bcb29eb6c7f8" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 28 32ΓÇ»PM" src="https://github.com/user-attachments/assets/57af4f55-b2ea-44b4-95cf-0db6597c1088" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 28 22ΓÇ»PM" src="https://github.com/user-attachments/assets/7612b31b-048a-4ae2-809c-3cc813d8c203" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 28 08ΓÇ»PM" src="https://github.com/user-attachments/assets/a4305f1f-c179-4976-9208-0dc1971d2a03" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 27 39ΓÇ»PM" src="https://github.com/user-attachments/assets/028f1c34-633b-4432-99d2-61d0620fdc51" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 20 19ΓÇ»PM" src="https://github.com/user-attachments/assets/3d7a2814-617d-43ae-947c-5eee939e16cd" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 20 11ΓÇ»PM" src="https://github.com/user-attachments/assets/76a313d4-da09-418a-8e9f-120b2c302363" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 20 02ΓÇ»PM" src="https://github.com/user-attachments/assets/c996b692-8650-4e17-a3f6-12277edb94bb" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 19 52ΓÇ»PM" src="https://github.com/user-attachments/assets/57ed4d30-4740-4808-aeca-0fee17563830" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 19 45ΓÇ»PM" src="https://github.com/user-attachments/assets/52cda30c-5b55-4ebc-922f-e283aaf2a648" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 19 35ΓÇ»PM" src="https://github.com/user-attachments/assets/44c70637-e520-4ba4-8381-0dc1bdb9b9be" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 19 25ΓÇ»PM" src="https://github.com/user-attachments/assets/eb05a60f-96b9-4a02-8b3c-1b21c5c40480" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 19 17ΓÇ»PM" src="https://github.com/user-attachments/assets/ad89b8fe-56c9-4074-8ba6-8998796c8271" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 18 53ΓÇ»PM" src="https://github.com/user-attachments/assets/86e37f6c-fa2c-45c4-8243-dcbadb4eb54b" />
+
+
+
 ## 🚀 Deployment
 
 ### Jenkins CI/CD Pipeline
