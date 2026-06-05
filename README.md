@@ -267,8 +267,7 @@ npm test
 <img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 20 02ΓÇ»PM" src="https://github.com/user-attachments/assets/c996b692-8650-4e17-a3f6-12277edb94bb" />
 <img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 19 52ΓÇ»PM" src="https://github.com/user-attachments/assets/57ed4d30-4740-4808-aeca-0fee17563830" />
 <img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 19 45ΓÇ»PM" src="https://github.com/user-attachments/assets/52cda30c-5b55-4ebc-922f-e283aaf2a648" />
-<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 19 35ΓÇ»PM" src="https://github.com/user-attachments/assets/44c70637-e520-4ba4-8381-0dc1bdb9b9be" />
-<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 19 25ΓÇ»PM" src="https://github.com/user-attachments/assets/eb05a60f-96b9-4a02-8b3c-1b21c5c40480" />
+<img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 19 35ΓÇ»PM" src="https://github.com/user-attachments/asse1b21c5c40480" />
 <img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 19 17ΓÇ»PM" src="https://github.com/user-attachments/assets/ad89b8fe-56c9-4074-8ba6-8998796c8271" />
 <img width="1728" height="1117" alt="Screenshot 2025-12-31 at 2 18 53ΓÇ»PM" src="https://github.com/user-attachments/assets/86e37f6c-fa2c-45c4-8243-dcbadb4eb54b" />
 
@@ -355,4 +354,4 @@ Your Name - [rahulsharma84244@gmail.com](mailto:rahulsharma84244@gmail.com)
 
 ## 📞 Support
 
-For support, email your.email@example.com or create an issue in the GitHub repository.
+For support, email rahulsharma84244@gmail.com or create an issue in the GitHub repository.
