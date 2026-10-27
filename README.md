@@ -343,7 +343,7 @@ This project is licensed under the MIT License.
 
 ## 👥 Authors
 
-Your Name - [rahulsharma84244@gmail.com](mailto:rahulsharma84244@gmail.com)
+Rahul Sharma - [rahulsharma84244@gmail.com](mailto:rahulsharma84244@gmail.com)
 
 ## 🙏 Acknowledgments
 
